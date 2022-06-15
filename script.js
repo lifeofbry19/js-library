@@ -1,4 +1,4 @@
-let myLibrary = [];
+const myLibrary = JSON.parse(localStorage.getItem("myLibrary")) || [];
 const addBookBtn = document.querySelector(".add-book-btn");
 const bookFormDiv = document.querySelector(".book-form-div");
 const form = document.querySelector(".add-book-form");
@@ -7,6 +7,8 @@ const bookAuthor = document.querySelector('input[name="author"]');
 const bookPages = document.querySelector('input[name="pages"]');
 const bookRead = document.querySelector('input[type="checkbox"]');
 const libraryContainer = document.querySelector(".library-container");
+const readBtn = document.querySelector('#read-btn');
+const removeBtn = document.querySelector('.remove');
 
 function Book(title, author, pages, read = false) {
   this.title = title;
@@ -31,6 +33,7 @@ function addToLibraryArray() {
   let read = false;
   bookFormDiv.classList.toggle("active");
   console.log("form submitted");
+  console.log(`book read? ${bookRead.value}`);
   if (bookRead.value === "on") {
     read = true;
   }
@@ -44,40 +47,81 @@ function addToLibraryArray() {
   console.log(newBook);
   myLibrary.push(newBook);
   console.log(myLibrary);
-  displayLibrary();
+  createBook(newBook);
   form.reset();
 }
 
-function addBookToLibraryArr() {
-  // return <li> with a book element that gets added to html
-  // add to the myLibrary array
+function displayLibrary() {
+  const bookCards = document.querySelectorAll('.book-card');
+  bookCards.forEach(bookCard => {
+    libraryContainer.removeChild(bookCard)
+  })
+  for (let i=0; i < myLibrary.length; i++){
+      createBook(myLibrary[i]);
+  }
+  localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+  console.log(myLibrary)
 }
 
-function displayLibrary() {
+function createBook(book) {
   // take each element in the library array and display them all on cards
-  newestElem = myLibrary[myLibrary.length - 1];
+  let index = myLibrary.indexOf(book);
 
   let bookDiv = document.createElement("div");
   let titleP = document.createElement("p");
   let authorP = document.createElement("p");
   let pagesP = document.createElement("p");
   let readDiv = document.createElement("div");
-
+  let removeBtn = document.createElement("div");
+  
+  bookDiv.classList.add('book-card')
   libraryContainer.appendChild(bookDiv);
   bookDiv.appendChild(titleP);
   bookDiv.appendChild(authorP);
   bookDiv.appendChild(pagesP);
   bookDiv.appendChild(readDiv);
+  bookDiv.appendChild(removeBtn);
 
-  titleP.textContent = newestElem.title;
-  authorP.textContent = newestElem.author;
-  pagesP.textContent = newestElem.pages;
-  readDiv.textContent = newestElem.read ? "Read" : "Not Read";
-  if (newestElem.read === true) {
+  bookDiv.setAttribute('data-index', index);
+  removeBtn.classList.add('remove');
+  removeBtn.textContent = 'remove';
+  readDiv.setAttribute('id', 'read-btn');
+
+  let readBtn = document.querySelector('#read-btn')
+  titleP.textContent = book.title;
+  authorP.textContent = book.author;
+  pagesP.textContent = book.pages;
+  readDiv.textContent = book.read ? "Read" : "Not Read";
+  if (book.read === true) {
     readDiv.classList.add("read");
   } else {
     readDiv.classList.add("not-read");
   }
+
+  removeBtn.addEventListener('click', (e) => {
+    console.log(e);
+    let cardDiv = e.path[1];
+    console.log(cardDiv);
+    while(cardDiv.firstChild) {
+      cardDiv.removeChild(cardDiv.firstChild)
+    }
+    libraryContainer.removeChild(cardDiv);
+    myLibrary.splice(index, 1);
+    displayLibrary();
+  });
+
+  readBtn.addEventListener('click', () => {
+    if (readDiv.classList.contains('read')) {
+      readDiv.classList.remove('read')
+      readDiv.classList.add('not-read')
+    } else {
+      readDiv.classList.remove('not-read')
+      readDiv.classList.add('read')
+    }
+  });
+
 }
 
+
 onLoad();
+displayLibrary();

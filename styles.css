@@ -143,3 +143,15 @@ div.not-read {
   background-color: rgb(244, 198, 198);
   cursor: pointer;
 }
+
+div.remove {
+  border: 2px solid transparent;
+  width: 60%;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: rgb(177, 177, 177);
+  cursor: pointer;
+  box-shadow: 0px 0px 2px black;
+}
