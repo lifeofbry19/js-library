@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="header-container">
+      <div class="library-title">
+        <strong><p>personal library</p></strong>
+      </div>
+      <div class="login-btn"><button>log in</button></div>
+    </div>
+
+    <form class="add-book-form" action="#">
+      <div class="book-form-div">
+        <input type="text" name="title" placeholder="Title" />
+
+        <input type="text" name="author" placeholder="Author" />
+
+        <input type="text" name="pages" placeholder="Pages" />
+        <div class="checkbox-container">
+          <label for="read-yet">Have you read this book?</label>
+          <input type="checkbox" name="read-yet" />
+        </div>
+        <div class="submit-container">
+          <button class="submit-btn" type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
+
+    <div class="library-container">
+      <div>
+        <p>Harry Potter</p>
+        <p>Author:</p>
+        <p>100 pages</p>
+        <div class="read">Read</div>
+      </div>
+    </div>
+
+    <div class="add-book-btn">
+      <button>&#43; add book</button>
+    </div>
+  </body>
+</html>

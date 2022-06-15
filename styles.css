@@ -1,0 +1,145 @@
+body {
+  box-sizing: border-box;
+  background-color: rgb(231, 231, 231);
+  margin: 0px;
+}
+.header-container {
+  display: flex;
+  height: 100px;
+  justify-content: space-around;
+  background-color: white;
+  box-shadow: 0px 0px 8px rgb(56, 56, 56);
+}
+.header-container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.library-title {
+  font-size: 24px;
+}
+.login-btn > button {
+  height: 40px;
+  width: 60px;
+  font-size: 18px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+/* end of header content, start of new book form styling */
+
+.add-book-btn > button {
+  height: 60px;
+  width: 120px;
+  font-size: 20px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: rgb(215, 215, 215);
+  cursor: pointer;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+}
+.add-book-btn > button:hover {
+  background-color: rgb(178, 178, 178);
+}
+
+.book-form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px rgb(86, 86, 86);
+  width: 220px;
+  gap: 30px;
+  background-color: rgb(232, 231, 231);
+  padding: 20px;
+  margin-top: 20px;
+  position: absolute;
+  left: 40%;
+  transition: all 0.5s;
+  transform: translateY(-200%);
+}
+.book-form-div.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 0px 0px 8px rgb(86, 86, 86);
+  width: 220px;
+  gap: 30px;
+  background-color: rgb(232, 231, 231);
+  padding: 20px;
+  margin-top: 20px;
+  position: absolute;
+  left: 40%;
+  transition: all 0.5s;
+  transform: translateY(0%);
+}
+
+.book-form-div > input[type="text"] {
+  height: 30px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+}
+.book-form-div > input[type="text"]:valid {
+  outline: none;
+}
+
+.submit-container {
+  width: 80%;
+}
+button.submit-btn {
+  height: 40px;
+  width: 100%;
+  background-color: aqua;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+/* library cards */
+
+.library-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+.library-container > div {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid transparent;
+  box-shadow: 0px 0px 8px black;
+  background-color: rgb(237, 230, 222);
+  border-radius: 8px;
+  width: 200px;
+}
+.library-container > div > p {
+  border-bottom: 2px solid black;
+  padding: 5px;
+  width: 60%;
+}
+div.read {
+  border: 2px solid black;
+  width: 60%;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: rgb(200, 245, 200);
+  cursor: pointer;
+}
+div.not-read {
+  border: 2px solid black;
+  width: 60%;
+  margin-bottom: 5px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: rgb(244, 198, 198);
+  cursor: pointer;
+}
