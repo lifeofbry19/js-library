@@ -18,13 +18,13 @@ body {
 .library-title {
   font-size: 24px;
 }
-.login-btn > button {
-  height: 40px;
-  width: 60px;
+.stats > p {
+  height: 30px;
   font-size: 18px;
   border: 2px solid transparent;
   border-radius: 8px;
-  cursor: pointer;
+  background-color: rgb(228, 228, 228);
+  padding: 10px;
 }
 /* end of header content, start of new book form styling */
 
@@ -34,6 +34,19 @@ body {
   font-size: 20px;
   border: 2px solid transparent;
   border-radius: 8px;
+  background-color: rgb(215, 215, 215);
+  cursor: pointer;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  transition: all 0.5s;
+}
+.add-book-btn > button.active {
+  height: 60px;
+  width: 60px;
+  font-size: 20px;
+  border: 2px solid transparent;
+  border-radius: 50%;
   background-color: rgb(215, 215, 215);
   cursor: pointer;
   position: fixed;
@@ -123,7 +136,7 @@ button.submit-btn {
   padding: 5px;
   width: 60%;
 }
-div.read {
+div#read-btn {
   border: 2px solid black;
   width: 60%;
   margin-bottom: 5px;
@@ -131,16 +144,6 @@ div.read {
   padding: 5px;
   border-radius: 8px;
   background-color: rgb(200, 245, 200);
-  cursor: pointer;
-}
-div.not-read {
-  border: 2px solid black;
-  width: 60%;
-  margin-bottom: 5px;
-  text-align: center;
-  padding: 5px;
-  border-radius: 8px;
-  background-color: rgb(244, 198, 198);
   cursor: pointer;
 }
 
